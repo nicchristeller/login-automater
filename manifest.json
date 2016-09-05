@@ -1,0 +1,40 @@
+{
+    "manifest_version": 2,
+
+    "name": "Login Automater",
+    "description": "Automatically logs in to registered sites!",
+    "version": "1.0",
+
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": false
+    },
+    
+    "content_scripts": [
+        {
+            "matches": ["*://learn.canterbury.ac.nz/*"],
+            "js": ["jquery.js", "login.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["*://login.canterbury.ac.nz/*"],
+            "js": ["jquery.js", "login.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["https://mytimetable.canterbury.ac.nz/aplus/student*"],
+            "js": ["jquery.js", "login.js"],
+            "run_at": "document_end"
+        },
+        {
+            "matches": ["*://agilefant.cosc.canterbury.ac.nz:*/*"],
+            "js": ["jquery.js", "login.js"],
+            "run_at": "document_end"
+        }
+    ],
+    "permissions": [
+      "declarativeContent",
+      "tabs",
+      "file://*/*"
+    ]
+ }
